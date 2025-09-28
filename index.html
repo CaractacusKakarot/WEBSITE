@@ -1,77 +1,379 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modern Website</title>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1"
+  />
+  <title>Cool Critters — ColdCove & Piplet Hydration</title>
+  <meta name="description" content="Cool Critters makes temperature-smart hydration systems for pets. ColdCove for bigger pets. Piplet for small companions. Spill-free, durable, and easy to use." />
+  <meta name="theme-color" content="#0f766e" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cool Critters — ColdCove & Piplet Hydration" />
+  <meta property="og:description" content="Cool, clean hydration for every pet. Temperature-smart, gravity-fed, and built tough." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-username.github.io/your-repo" />
+  <!-- Replace with your hero image path in your repo -->
+  <meta property="og:image" content="assets/hero.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind (CDN for GH Pages) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            brand: {
+              DEFAULT: '#0f766e',   /* deep teal */
+              50: '#e6f6f5',
+              100: '#cdecea',
+              200: '#9ad9d4',
+              300: '#66c5be',
+              400: '#33b2a9',
+              500: '#0fa3a2',
+              600: '#0f766e',       /* brand base */
+              700: '#0d5f59',
+              800: '#0b4944',
+              900: '#07302d'
+            }
+          },
+          boxShadow: {
+            soft: '0 10px 30px rgba(0,0,0,.10)',
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    /* Global styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Helvetica Neue', sans-serif; background: #fff; color: #222; line-height: 1.6; }
-    h1, h2, h3 { font-weight: 600; }
-    a { color: inherit; text-decoration: none; }
-
-    /* Layout */
-    header { padding: 2rem; text-align: center; }
-    .hero { height: 90vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-    .hero p { font-size: 1.2rem; color: #666; }
-    .btn { margin-top: 2rem; padding: 0.8rem 2rem; background: #111; color: #fff; border-radius: 30px; transition: 0.3s; }
-    .btn:hover { background: #444; }
-
-    section { padding: 5rem 10%; text-align: center; }
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-    .card { padding: 2rem; border: 1px solid #eee; border-radius: 12px; transition: 0.3s; }
-    .card:hover { box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
-
-    footer { background: #111; color: #fff; text-align: center; padding: 2rem; }
+    /* Decorative teal spheres for hero (no images required) */
+    .spheres > span {
+      position: absolute; border-radius: 9999px; filter: drop-shadow(0 10px 24px rgba(0,0,0,.25));
+      background: radial-gradient(120% 120% at 35% 30%, rgba(255,255,255,.85) 0%, rgba(255,255,255,.1) 18%, rgba(15,118,110,1) 42%, rgba(7,48,45,1) 100%);
+    }
+    .sphere-lg { width: 420px; height: 420px; left: 45%; top: 10%; transform: translateX(-30%); }
+    .sphere-md { width: 240px; height: 240px; left: 72%; top: 28%; }
+    .sphere-sm { width: 140px; height: 140px; left: 58%; top: -4%; }
+    .sphere-xs { width: 110px; height: 110px; left: 78%; top: 58%; }
+    @media (max-width: 1024px) {
+      .sphere-lg { width: 300px; height: 300px; left: 60%; top: 10%; }
+      .sphere-md { width: 180px; height: 180px; left: 75%; top: 35%; }
+      .sphere-sm { width: 110px; height: 110px; left: 65%; top: 2%; }
+      .sphere-xs { width: 90px; height: 90px; left: 80%; top: 62%; }
+    }
   </style>
 </head>
-<body>
 
-  <!-- Hero -->
-  <header class="hero">
-    <h1>Welcome to My Website</h1>
-    <p>Modern. High-end. Simple.</p>
-    <a href="#features" class="btn">Learn More</a>
+<body class="text-slate-900 antialiased">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/85 backdrop-blur border-b border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3" aria-label="Cool Critters home">
+        <!-- If you have an SVG logo, replace the circle -->
+        <span class="inline-flex h-8 w-8 rounded-full bg-brand-600"></span>
+        <span class="font-display text-xl tracking-tight">Cool Critters</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm">
+        <a href="#products" class="hover:text-brand-700">Products</a>
+        <a href="#specs" class="hover:text-brand-700">Specs</a>
+        <a href="#resources" class="hover:text-brand-700">Resources</a>
+        <a href="#story" class="hover:text-brand-700">Story</a>
+        <a href="#contact" class="inline-flex items-center rounded-full bg-brand-600 px-4 py-2 text-white hover:bg-brand-700">Pre-Order</a>
+      </nav>
+      <!-- Mobile menu button -->
+      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-slate-700 hover:bg-slate-100" aria-expanded="false" aria-controls="mnav" aria-label="Open menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+    <!-- Mobile Nav -->
+    <div id="mnav" class="md:hidden hidden border-t border-slate-200">
+      <nav class="px-4 py-3 flex flex-col gap-3 text-sm">
+        <a href="#products" class="py-2">Products</a>
+        <a href="#specs" class="py-2">Specs</a>
+        <a href="#resources" class="py-2">Resources</a>
+        <a href="#story" class="py-2">Story</a>
+        <a href="#contact" class="py-2 font-semibold text-brand-700">Pre-Order</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Features -->
-  <section id="features">
-    <h2>Our Features</h2>
-    <div class="features">
-      <div class="card">
-        <h3>Elegant Design</h3>
-        <p>Minimalist and modern look that feels high-end.</p>
-      </div>
-      <div class="card">
-        <h3>Responsive Layout</h3>
-        <p>Looks perfect on desktop, tablet, and mobile devices.</p>
-      </div>
-      <div class="card">
-        <h3>Fast & Simple</h3>
-        <p>No clutter, just what matters. Lightning quick.</p>
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="spheres pointer-events-none absolute inset-0">
+      <span class="sphere-lg"></span>
+      <span class="sphere-md"></span>
+      <span class="sphere-sm"></span>
+      <span class="sphere-xs"></span>
+    </div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      <div class="max-w-2xl">
+        <h1 class="font-display text-4xl sm:text-5xl leading-tight">
+          Cool, clean hydration for every pet.
+        </h1>
+        <p class="mt-4 text-lg text-slate-700">
+          Temperature-smart, gravity-fed systems that keep water flowing and fresh—indoors, outdoors, and on the go.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#coldcove" class="inline-flex items-center rounded-full bg-brand-600 px-5 py-3 text-white hover:bg-brand-700 shadow-soft">Pre-Order ColdCove</a>
+          <a href="#piplet" class="inline-flex items-center rounded-full border border-slate-300 px-5 py-3 hover:bg-slate-50">See Piplet</a>
+        </div>
+        <p class="mt-6 text-sm text-slate-500">Keeping pets cool — one sip at a time.</p>
       </div>
     </div>
   </section>
 
-  <!-- About -->
-  <section>
-    <h2>About Us</h2>
-    <p>We believe in keeping things clean, professional, and powerful. 
-       This site is built to showcase simplicity at its finest.</p>
+  <!-- Products -->
+  <section id="products" class="bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-2 gap-12">
+      <!-- Piplet -->
+      <article id="piplet" class="rounded-2xl border border-slate-200 p-8 bg-white shadow-soft">
+        <h2 class="font-display text-3xl">Piplet — Small Companions</h2>
+        <p class="mt-2 text-slate-700">Hydration for small mammals, birds, and reptiles. Spill-free. Easy to clean. Built to adapt.</p>
+        <ul class="mt-6 space-y-3 text-slate-800">
+          <li><strong>Materials:</strong> Lightweight, BPA-free polymer; stain- and crack-resistant.</li>
+          <li><strong>Modular:</strong> Interchangeable mounts for cages, stands, and custom setups.</li>
+          <li><strong>One-hand use:</strong> Quick release for the fastest refresh and refill.</li>
+          <li><strong>Hygiene:</strong> Smooth interiors reduce biofilm and odors.</li>
+          <li><strong>Care:</strong> Easy disassembly for rinsing; dish-safe components where noted.</li>
+        </ul>
+        <div class="mt-8 flex gap-3">
+          <a class="inline-flex items-center rounded-full bg-slate-900 px-4 py-2 text-white hover:bg-slate-800" href="#contact">Join Waitlist</a>
+          <a class="inline-flex items-center rounded-full border border-slate-300 px-4 py-2 hover:bg-slate-50" href="#specs">View Specs</a>
+        </div>
+      </article>
+
+      <!-- ColdCove -->
+      <article id="coldcove" class="rounded-2xl border border-slate-200 p-8 bg-white shadow-soft">
+        <h2 class="font-display text-3xl">ColdCove — Bigger Pets</h2>
+        <p class="mt-2 text-slate-700">High-capacity hydration for cats, dogs, and large animals. Built for home, yard, and travel.</p>
+        <ul class="mt-6 space-y-3 text-slate-800">
+          <li><strong>Materials:</strong> Double-walled stainless steel with insulation for long-lasting cool water.</li>
+          <li><strong>Temperature-smart:</strong> Maintains temperature stability in hot or cold environments.</li>
+          <li><strong>Gravity-fed flow:</strong> Consistent water supply—no power required.</li>
+          <li><strong>Durability:</strong> Rust- and scratch-resistant; rugged exterior for outdoor use.</li>
+          <li><strong>Care:</strong> Food-grade surfaces; easy to clean and maintain.</li>
+        </ul>
+        <div class="mt-8 flex gap-3">
+          <a class="inline-flex items-center rounded-full bg-brand-600 px-4 py-2 text-white hover:bg-brand-700" href="#contact">Pre-Order</a>
+          <a class="inline-flex items-center rounded-full border border-slate-300 px-4 py-2 hover:bg-slate-50" href="#specs">View Specs</a>
+        </div>
+      </article>
+    </div>
   </section>
 
-  <!-- Contact -->
-  <section>
-    <h2>Get in Touch</h2>
-    <p>Email us at <a href="mailto:info@example.com">info@example.com</a></p>
+  <!-- Specs / Comparison -->
+  <section id="specs" class="bg-slate-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <h3 class="font-display text-3xl">Quick Specs</h3>
+      <div class="mt-8 overflow-x-auto">
+        <table class="w-full text-left text-sm border border-slate-200 bg-white rounded-xl overflow-hidden">
+          <thead class="bg-slate-100 text-slate-700">
+            <tr>
+              <th class="px-4 py-3">Spec</th>
+              <th class="px-4 py-3">Piplet</th>
+              <th class="px-4 py-3">ColdCove</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            <tr>
+              <td class="px-4 py-3 font-medium">Primary materials</td>
+              <td class="px-4 py-3">BPA-free polymer; silicone seals</td>
+              <td class="px-4 py-3">Double-walled stainless steel; insulated</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium">Flow system</td>
+              <td class="px-4 py-3">Spill-control spout; low-drip</td>
+              <td class="px-4 py-3">Gravity-fed continuous flow</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium">Best for</td>
+              <td class="px-4 py-3">Small mammals, birds, reptiles</td>
+              <td class="px-4 py-3">Cats, dogs, large animals</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium">Cleaning</td>
+              <td class="px-4 py-3">Quick-release; easy disassembly</td>
+              <td class="px-4 py-3">Wide-mouth bottle; wipe-clean base</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium">Power required</td>
+              <td class="px-4 py-3">None</td>
+              <td class="px-4 py-3">None</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-4 text-xs text-slate-500">Note: Final materials and specs may evolve through pilot production.</p>
+    </div>
+  </section>
+
+  <!-- Resources -->
+  <section id="resources" class="bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <h3 class="font-display text-3xl">Resources & Safety</h3>
+
+      <div class="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Animal Poison Control -->
+        <div class="rounded-2xl border border-slate-200 p-6">
+          <h4 class="text-xl font-semibold">Animal Poison Control</h4>
+          <p class="mt-2 text-slate-700">Immediate help for toxic emergencies:</p>
+          <ul class="mt-4 space-y-2">
+            <li>
+              <a class="text-brand-700 hover:underline" href="https://www.aspca.org/pet-care/animal-poison-control" target="_blank" rel="noopener">
+                ASPCA Animal Poison Control — 888-426-4435
+              </a>
+            </li>
+            <li>
+              <a class="text-brand-700 hover:underline" href="https://www.petpoisonhelpline.com/" target="_blank" rel="noopener">
+                Pet Poison Helpline — 855-764-7661
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Emergency Vet Finder -->
+        <div class="rounded-2xl border border-slate-200 p-6">
+          <h4 class="text-xl font-semibold">Emergency Vet Finder</h4>
+          <p class="mt-2 text-slate-700">Find 24/7 emergency veterinarians near you:</p>
+          <ul class="mt-4 space-y-2">
+            <li><a class="text-brand-700 hover:underline" href="https://www.vetspecialists.com/" target="_blank" rel="noopener">VetSpecialists.com</a></li>
+            <li><a class="text-brand-700 hover:underline" href="https://www.emergencyvetsusa.com/" target="_blank" rel="noopener">Emergency Vets USA</a></li>
+          </ul>
+        </div>
+
+        <!-- Rescue & Adoption -->
+        <div class="rounded-2xl border border-slate-200 p-6">
+          <h4 class="text-xl font-semibold">Rescue & Adoption</h4>
+          <p class="mt-2 text-slate-700">Explore trusted adoption networks:</p>
+          <ul class="mt-4 space-y-2">
+            <li><a class="text-brand-700 hover:underline" href="https://www.petfinder.com/" target="_blank" rel="noopener">Petfinder</a></li>
+            <li><a class="text-brand-700 hover:underline" href="https://www.adoptapet.com/" target="_blank" rel="noopener">Adopt-a-Pet</a></li>
+            <li><a class="text-brand-700 hover:underline" href="https://bestfriends.org/" target="_blank" rel="noopener">Best Friends Animal Society</a></li>
+          </ul>
+        </div>
+
+        <!-- Lost & Found -->
+        <div class="rounded-2xl border border-slate-200 p-6">
+          <h4 class="text-xl font-semibold">Lost & Found Pets</h4>
+          <p class="mt-2 text-slate-700">Tools to help reunite families with pets:</p>
+          <ul class="mt-4 space-y-2">
+            <li><a class="text-brand-700 hover:underline" href="https://lost.petcolove.org/" target="_blank" rel="noopener">Petco Love Lost</a></li>
+            <li><a class="text-brand-700 hover:underline" href="https://www.pawboost.com/" target="_blank" rel="noopener">PawBoost</a></li>
+            <li><span class="text-slate-600">Local Facebook & community lost-pet groups</span></li>
+          </ul>
+        </div>
+
+        <!-- Care & Safety Guides -->
+        <div class="rounded-2xl border border-slate-200 p-6">
+          <h4 class="text-xl font-semibold">Care & Safety Guides</h4>
+          <p class="mt-2 text-slate-700">Expert tips for healthier adventures:</p>
+          <ul class="mt-4 space-y-2">
+            <li><a class="text-brand-700 hover:underline" href="https://www.aspca.org/pet-care" target="_blank" rel="noopener">ASPCA Pet Care Guides</a></li>
+            <li><a class="text-brand-700 hover:underline" href="https://www.redcross.org/take-a-class/first-aid/cat-dog-first-aid" target="_blank" rel="noopener">Red Cross Pet First Aid</a></li>
+            <li><a class="text-brand-700 hover:underline" href="https://www.avma.org/resources-tools/pet-owners/petcare/traveling-pets" target="_blank" rel="noopener">AVMA: Traveling with Pets</a></li>
+          </ul>
+        </div>
+
+        <!-- Give-Back -->
+        <div class="rounded-2xl border border-slate-200 p-6">
+          <h4 class="text-xl font-semibold">Our Give-Back Program</h4>
+          <p class="mt-2 text-slate-700">Every purchase fuels change. Goal: <strong>10,000+ units donated in Year 1</strong> to shelters, rescues, and K9 service units.</p>
+        </div>
+      </div>
+
+      <p class="mt-8 text-xs text-slate-500">
+        These resources are provided for informational purposes only. Cool Critters is not affiliated with these organizations.
+      </p>
+    </div>
+  </section>
+
+  <!-- Story / CTA -->
+  <section id="story" class="bg-slate-900 text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h3 class="font-display text-3xl">More than a product.</h3>
+          <p class="mt-3 text-slate-200">We’re building a simple change with outsized impact: cooler, cleaner water that pets actually drink. Designed for real life—easy to use, easy to clean, and made to last.</p>
+          <div class="mt-8">
+            <a href="#contact" class="inline-flex items-center rounded-full bg-white text-slate-900 px-5 py-3 hover:bg-slate-100">Get updates</a>
+          </div>
+        </div>
+        <div class="rounded-2xl bg-white/5 p-8 border border-white/10">
+          <ul class="space-y-3">
+            <li>• Temperature-smart designs for any environment</li>
+            <li>• Gravity-fed flow—no power, fewer parts to fail</li>
+            <li>• Food-grade materials and easy-clean geometry</li>
+            <li>• Modular components for future add-ons</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Preorder -->
+  <section id="contact" class="bg-white">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24 text-center">
+      <h3 class="font-display text-3xl">Be first to know</h3>
+      <p class="mt-2 text-slate-700">Pre-orders, pilot updates, and launch announcements.</p>
+      <!-- Replace form action with your provider -->
+      <form class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+        <label class="sr-only" for="email">Email</label>
+        <input id="email" type="email" required placeholder="you@example.com" class="w-full sm:w-96 rounded-full border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600" />
+        <button class="rounded-full bg-brand-600 px-6 py-3 text-white hover:bg-brand-700">Notify me</button>
+      </form>
+      <p class="mt-3 text-xs text-slate-500">We respect your inbox. Unsubscribe anytime.</p>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>© 2025 My Website. All rights reserved.</p>
+  <footer class="border-t border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-slate-600">© <span id="year"></span> Cool Critters LLC. All rights reserved.</p>
+      <nav class="flex gap-5 text-sm">
+        <a class="hover:text-brand-700" href="#resources">Resources</a>
+        <a class="hover:text-brand-700" href="#">Privacy</a>
+        <a class="hover:text-brand-700" href="#">Shipping & Returns</a>
+      </nav>
+    </div>
   </footer>
 
+  <script>
+    // Mobile nav toggle
+    const btn = document.getElementById('menuBtn');
+    const mnav = document.getElementById('mnav');
+    btn?.addEventListener('click', () => {
+      const isOpen = mnav.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Structured data (basic) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Cool Critters",
+    "url": "https://your-username.github.io/your-repo",
+    "brand": "Cool Critters",
+    "sameAs": [
+      "https://www.instagram.com/",
+      "https://www.tiktok.com/"
+    ],
+    "description": "Temperature-smart, gravity-fed hydration systems for pets."
+  }
+  </script>
 </body>
 </html>
